@@ -1,5 +1,6 @@
 package com.imagetopdf;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
@@ -21,6 +22,10 @@ public class ImagetoPdfApplication {
 		SpringApplication.run(ImagetoPdfApplication.class, args);
 		try (WatchService service = FileSystems.getDefault().newWatchService()) {
 			Map<WatchKey, Path> keyMap = new HashMap<>();
+			File root = new File("C:\\Users\\kavin\\eclipse-workspace\\ImagetoPDF\\source");
+			if (!root.exists()) {
+				root.mkdir();
+			}
 			Path path = Paths.get("source");
 			keyMap.put(path.register(service, StandardWatchEventKinds.ENTRY_CREATE,
 					StandardWatchEventKinds.ENTRY_DELETE, StandardWatchEventKinds.ENTRY_MODIFY), path);

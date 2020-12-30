@@ -25,7 +25,7 @@ public class ImagetoPDFController {
 		if (ImagetoPDFHelper.hasImageFormat(files)) {
 			try {
 				fileService.save(files, fileName);
-				redirectAttributes.addFlashAttribute("message", "You successfully uploaded all files!");
+				redirectAttributes.addFlashAttribute("message", "Successfully uploaded all files!");
 				return "redirect:/";
 			} catch (Exception e) {
 				redirectAttributes.addFlashAttribute("message", "Could not upload the file!");

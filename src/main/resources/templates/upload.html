@@ -6,7 +6,7 @@
 	<h2>Image to PDF</h2>
 	<form method="POST" th:action="@{/uploadFiles}"
 		enctype="multipart/form-data">
-		<input type="file" name="files" multiple /> <br />
+		<input type="file" name="files" accept="image/*" multiple /> <br />
 		<br /> <label for="filename">File Name:</label> <input type="text"
 			id="filename" name="filename" required><br>
 		<br>
