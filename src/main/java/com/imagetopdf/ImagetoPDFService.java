@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -12,9 +11,7 @@ import com.itextpdf.text.DocumentException;
 
 @Service
 public class ImagetoPDFService {
-	@Value("${app.upload.dir:${C:\\Users\\kavin\\eclipse-workspace\\ImagetoPDF\\source}}")
-	public String uploadDir;
-
+	
 	@Autowired
 	ImagetoPDFRepository repository;
 

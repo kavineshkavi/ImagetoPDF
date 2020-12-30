@@ -11,7 +11,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,9 +21,6 @@ import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.PdfWriter;
 
 public class ImagetoPDFHelper {
-
-	@Autowired
-	static ImagetoPDFService fileService;
 
 	public static boolean hasImageFormat(MultipartFile[] files) {
 		for (MultipartFile file : files) {
@@ -38,7 +34,7 @@ public class ImagetoPDFHelper {
 	public static List<ImagetoPDF> imageToPDF(MultipartFile[] files, String fileName)
 			throws DocumentException, MalformedURLException, IOException {
 
-		File root = new File("C:\\Users\\kavin\\eclipse-workspace\\ImagetoPDF\\source");
+		File root = new File("source");
 		if (!root.exists()) {
 			root.mkdir();
 		}
@@ -62,7 +58,7 @@ public class ImagetoPDFHelper {
 			image.setAlignment(Element.ALIGN_CENTER);
 			float imageWidth = image.getWidth();
 			if (imageWidth > document.getPageSize().getWidth()) {
-				int indentation = 0;
+				int indentation = 25;
 				float scaler = ((document.getPageSize().getWidth() - document.leftMargin() - document.rightMargin()
 						- indentation) / image.getWidth()) * 50;
 				image.scalePercent(scaler);
